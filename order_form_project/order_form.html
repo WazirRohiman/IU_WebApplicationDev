@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computer Components Order Form</title>
+  <!-- Imports the Bootstrap CSS framework from a CDN-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Import the custom 'styles.css' CSS file for the web app-->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Import the FontAwesome library for the icons used in the web app-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Import the Poppins font from Google Fonts. It specifies taht a regular (400) and semibold(600) are to be included -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<!--Start of the body element-->
+<body>
+  <div class="container">
+    <h1>Computer Components Order Form</h1>
+
+    <!-- Beginning of the Form elements -->
+    <form id="order-form">
+      <!-- Form elements are added below -->
+      <div class="form-group">
+        <!-- The first set of inputs are text input to obtain user details  -->
+        <label for="employee-name">Employee Name:</label>
+        <input type="text" class="form-control" id="employee-name" name="employee-name" placeholder="Enter employee name" required>
+        
+        <label for="employee-number">Employee Number:</label>
+        <input type="text" class="form-control" id="employee-number" name="employee-number" placeholder="Enter employee number" required>
+        
+        <label for="email">Email address:</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+
+        <!-- The snippet below generates a dropdown list containing the hardware components  -->
+        <label for="component">Component:</label>
+        <select class="form-control" id="component" name="component">
+          <option value="CPU">CPU</option>
+          <option value="GPU">GPU</option>
+          <option value="RAM">RAM</option>
+          <option value="SSD">SSD</option>
+          <option value="Motherboard">Motherboard</option>
+          <option value="PSU">PSU</option>
+        </select>
+      </div>
+
+      <!-- The snippet below generates the icon on the web app  -->
+      <!-- In the script.js document, an event listener is used to change the icon based on the value in selected in the list above  -->
+      <div class="form-group">
+        
+        <div id="icon-container" class="icon-container text-center my-3">
+          <i id="component-icon" class="fas fa-desktop icon-large"></i>
+        </div>       
+    
+      </div>
+
+      <!-- The snippet below allows the user to choose the quantity of selected items from the drop down list  -->
+      <div class="form-group">
+        <label for="quantity">Quantity:</label>
+        <input type="number" class="form-control" id="quantity" name="quantity" min="1" value="1">
+      </div>
+
+      <!-- A comment text box to allow users to add additional details or comments  -->
+      <div class="mb-3">
+        <label for="comments" class="form-label">Additional Details:</label>
+        <textarea class="form-control" id="comments" rows="3" placeholder="Enter any additional details or comments here..."></textarea>
+      </div>
+      
+      <!-- This button allows user to add selected items from the drop down list to add any quantity of selected items to the basket -->
+      <!-- An event listener in the script.js doc is used to add the items  -->
+      <button id="add-to-basket" class="btn btn-primary mt-3" type="button">Add to Basket</button>
+
+      <!-- The 'basket' text header  -->
+      <div class="mt-5">
+        <h2 class="text-center">Basket</h2>
+       <ul id="basket-items" class="list-group"></ul>
+      </div>
+
+      <!-- The submit button  -->
+      <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary mt-3">Submit Order</button>
+      </div>
+
+      <!-- End of the form element  -->
+    </form>
+  </div>
+
+  <!-- Import all the required JavaScript Libraries -->
+  <!-- The jQuery library is used to handle events and control popup modal -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <!-- Popper.js is a dependency of the Bootstrap framework that handles popovers and floating elements-->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <!-- Below is the Bootstrap script-->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- This will load our javascript script to handle events -->
+  <script src="script.js"></script>
+
+  <!-- This is the modal popup that notifies the user of a successful submission -->
+  <!-- The script.js file contains an event listener that handles the appearing and is disappearing of the popup based on user interaction-->
+  <div class="popup-overlay" id="popup-overlay">
+    <div class="popup">
+      <h2>Order Successful</h2>
+      <p>Your order was submitted successfully!</p>
+      <button id="close-popup" onclick="hidePopup()">Close</button>
+    </div>
+  </div>
+  
+<!--End of the body element -->  
+</body>
+</html>
